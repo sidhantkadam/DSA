@@ -12,6 +12,7 @@ public class TreeDSA
         public Node(int value)
         {
             this.value = value;
+            this.left = this.right = null;
         }
     }
 
@@ -48,5 +49,26 @@ public class TreeDSA
                 temp = temp.right;
             }
         }
+    }
+
+    public boolean contains(int value)
+    {
+        Node temp = root;
+        while(temp!=null)
+        {
+            if(value<temp.value)              // checking the value is less that temp value
+            {
+                temp = temp.left;             // assign temp.value to temp
+            }
+            else if(value> temp.value)        // checking the value is greater than temp value
+            {
+                temp = temp.right;            // make temp as temp.right
+            }
+            else
+            {
+                return true;                  // otherwise returns true means value is found
+            }
+        }
+        return false;
     }
 }
